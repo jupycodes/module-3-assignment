@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form name="perform_calc" action="http://localhost:3000/" method="post">
+        <div>
+            <label for="value_1">Value 1: </label>
+            <input id="value_1" name="value_1" type="number">
+        </div><br>
+        <div>
+            <label for="value_2">Value 2: </label>
+            <input id="value_2" name="value_2" type="number">
+        </div><br>
+        <div>
+            <label for="operation">Operation</label>
+            <select id="operation" name="operation">
+                <option value="add">Add</option>
+                <option value="subtract">Subtract</option>
+                <option value="multiply">Multiply</option>
+                <option value="divide">Divide</option>
+            </select>
+        </div><br>
+        <button type="submit">Calculate!</button>
+    </form>
+</body>
+</html>
