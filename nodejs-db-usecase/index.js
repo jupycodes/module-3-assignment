@@ -21,20 +21,15 @@ function custom_middleware(req,res,next) {
     var section = req.params.section
     if (query == '/' && method =='GET'){
         getAllCounter ++
-    }
-    if (query ==`/by_id/${id}` && method =='GET'){
+    } else if (query ==`/by_id/${id}` && method =='GET'){
         getByIdCounter ++
-    }
-    if (query ==`/by_section/${section}` && method =='GET'){
+    } else if (query ==`/by_section/${section}` && method =='GET'){
         getBySectionCounter ++
-    }
-    if (method == "POST") {
+    } else if (method == "POST") {
         postCounter ++
-    }
-    if (method == "PATCH") {
+    } else if (method == "PATCH") {
         patchCounter ++
-    }
-    if (method == "DELETE") {
+    } else if (method == "DELETE") {
         deleteCounter ++
     }
     console.log(`Most recent route call: ${query}
@@ -111,7 +106,7 @@ app.patch('/:student_id', custom_middleware, function(req, res){
         if(result){
             result.gpa = req.body.gpa
             result.save().then(function(){
-                res.redirect('/');
+                res.send(result);
             }).catch(function(err){
                 res.status(500).send(err);
             });
@@ -132,7 +127,7 @@ app.delete('/:student_id', custom_middleware, function(req, res){
         if(result){
             //Delete student from database
             result.destroy().then(function(){
-                res.redirect('/');
+                res.send(result);
             }).catch(function(err){
                 res.status(500).send(err);
             });
